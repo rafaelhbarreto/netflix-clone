@@ -3,7 +3,7 @@
  */
 
 const API_KEY = '9e45867a6a5b31e63c07219095fec594';
-const API_BASE = 'https://api.themoviedb.org/3'; 
+const API_BASE = 'https://api.themoviedb.org/3';
 
 /**
  * 
@@ -18,22 +18,22 @@ const API_BASE = 'https://api.themoviedb.org/3';
  * 
  */
 
- /**
-  * make the request in the API 
-  * 
-  * @param {string} path 
-  */
+/**
+ * make the request in the API 
+ * 
+ * @param {string} path 
+ */
 const basicFetch = async (endpoint) => {
     const res = await fetch(`${API_BASE}${endpoint}`);
-    const json = res.json(); 
+    const json = res.json();
 
-    return json; 
+    return json;
 }
 
 export default {
 
-    getHomeList: async () => { 
-        return [ 
+    getHomeList: async () => {
+        return [
             {
                 slug: "originals",
                 title: "Originais Netflix",
@@ -76,5 +76,23 @@ export default {
             },
 
         ];
-    }    
+    },
+
+    getChosenInfo: async (movieId, type = 'tv') => {
+        let info = {};
+
+        if (movieId) {
+            switch (type) {
+                case 'movie':
+                    info = await basicFetch(`/movie/${movieId}?language=pt-BR&api_key=${API_KEY}`);
+                    break;
+                case 'tv':
+                    info = await basicFetch(`/tv/${movieId}?language=pt-BR&api_key=${API_KEY}`);
+                    break;
+                default: info = null;
+            }
+
+            return info;
+        }
+    }
 }

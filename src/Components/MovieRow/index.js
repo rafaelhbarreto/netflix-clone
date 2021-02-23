@@ -9,8 +9,8 @@ const MovieRow = ({ title, items }) => {
                 <div className="movieRow--listarea">
                     <div className="movieRow--list">
                         {items.results.length > 0 && items.results.map((item, index) => (
-                            <div className="movieRow--item">
-                                <img src={ `https://image.tmdb.org/t/p/w300/${item.poster_path}`} alt="" />
+                            <div className="movieRow--item" key={index}>
+                                <img src={`https://image.tmdb.org/t/p/w300/${item.poster_path}`} alt="" />
                             </div>
                         ))}
                     </div>
