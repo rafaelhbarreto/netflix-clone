@@ -1,0 +1,36 @@
+header {
+    position: fixed;
+    height: 70px;
+    width: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: transparent;
+    transition: all ease .2s; 
+    padding: 0 30px;
+    z-index: 99;
+}
+
+header.black {
+    background: #111; 
+}
+
+.header--logo {
+    height: 25px;
+}
+
+.header--logo img {
+    height: 100%; 
+}
+
+.header--avatar {
+    height: 40px;
+}
+
+.header--avatar img {
+    height: 100%;
+    border-radius: 3px;
+}

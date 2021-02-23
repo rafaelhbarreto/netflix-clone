@@ -1,0 +1,15 @@
+footer {
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #545454;   
+    font-size: 16px;  
+    background: #111; 
+}
+
+footer a {
+    font-weight: bold;
+    color: lightblue;
+    font-size: inherit;
+}
